@@ -1,0 +1,73 @@
+/* css/style.css */
+
+/* Define a fonte Inter para o corpo, caso o Tailwind não a pegue do HTML para todos os elementos.
+   Normalmente, a classe 'font-inter' no body (que adicionamos) deve ser suficiente com o Tailwind.
+   Mas é bom garantir. */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Animações Personalizadas */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes subtleBounce {
+    0%, 100% { transform: translateY(-2%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+    50% { transform: translateY(0); animation-timing-function: cubic-bezier(0,0,0.2,1); }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-subtleBounce {
+    animation: subtleBounce 1.5s infinite;
+}
+
+/* Estilo para a barra de rolagem (opcional, para um toque mais moderno) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9; /* Cor slate-100 do Tailwind */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1; /* Cor slate-300 do Tailwind */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; /* Cor slate-400 ou 500 do Tailwind */
+}
+
+/* Para garantir que o conteúdo da aba que não está visível não ocupe espaço
+   e para a aba ativa ser visível. */
+.tab-content > div:not(.active-tab-content) {
+    display: none;
+}
+.active-tab-content {
+    display: block; /* Ou flex, grid, dependendo do conteúdo interno */
+}
+
+/* Adiciona a classe da fonte Inter no corpo do HTML para que Tailwind possa usá-la,
+   ou defina-a aqui se preferir não depender da configuração inline do Tailwind (que não usamos com CDN).
+   A classe `font-inter` foi adicionada ao `body` no HTML, e a fonte importada no `<head>`.
+   Tailwind usará `font-family: Inter, sans-serif` devido à classe no body.
+*/
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Você pode adicionar mais estilos personalizados aqui conforme necessário. */
